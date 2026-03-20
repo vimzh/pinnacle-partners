@@ -118,7 +118,7 @@ export default function Home() {
           muted
           loop
           playsInline
-          className="absolute inset-0 w-[115%] h-[115%] object-cover brightness-110 saturate-[1.15] -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+          className="absolute inset-0 w-[180%] h-[180%] object-cover brightness-110 saturate-[1.15] -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
         >
           <source src="/videos/hero-bg.mp4" type="video/mp4" />
         </video>
@@ -429,7 +429,7 @@ export default function Home() {
           muted
           loop
           playsInline
-          className="absolute inset-0 w-[115%] h-[115%] object-cover brightness-110 saturate-[1.15] -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+          className="absolute inset-0 w-[180%] h-[180%] object-cover brightness-110 saturate-[1.15] -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
         >
           <source src="/videos/hero-bg.mp4" type="video/mp4" />
         </video>
