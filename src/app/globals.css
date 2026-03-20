@@ -61,6 +61,12 @@ img {
   height: auto;
 }
 
+/* Override Tailwind preflight video reset for fullscreen hero videos */
+video.absolute {
+  max-width: none;
+  height: 100%;
+}
+
 /* ─── Glass Morphism System ─── */
 .glass {
   background: var(--surface);
