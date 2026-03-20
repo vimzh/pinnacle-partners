@@ -113,13 +113,14 @@ export default function Home() {
 
       {/* ━━━━━━━━━━ HERO ━━━━━━━━━━ */}
       <section className="relative h-dvh min-h-[600px] max-h-[1200px] flex items-center justify-center overflow-hidden">
-        {/* Video — object-cover crops left/right on portrait mobile to fill full height */}
+        {/* Video — object-cover crops sides on portrait mobile to fill full height */}
         <video
           autoPlay
           muted
           loop
           playsInline
-          className="absolute inset-0 w-full h-full object-cover brightness-110 saturate-[1.15]"
+          className="absolute inset-0 object-cover brightness-110 saturate-[1.15]"
+          style={{ width: "100%", height: "100%", minWidth: "100%", minHeight: "100%" }}
           poster="/videos/hero-poster.jpg"
         >
           <source src="/videos/hero-bg.mp4" type="video/mp4" />
@@ -426,7 +427,14 @@ export default function Home() {
 
       {/* ━━━━━━━━━━ FINAL CTA ━━━━━━━━━━ */}
       <section className="relative h-dvh min-h-[500px] max-h-[900px] flex items-center justify-center overflow-hidden">
-        <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover brightness-110 saturate-[1.15]">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 object-cover brightness-110 saturate-[1.15]"
+          style={{ width: "100%", height: "100%", minWidth: "100%", minHeight: "100%" }}
+        >
           <source src="/videos/hero-bg.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-b from-[#f5f2ec]/50 via-transparent to-[#f5f2ec]/50" />

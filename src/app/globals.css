@@ -55,8 +55,8 @@ html {
   overflow-x: hidden;
 }
 
-/* Ensure images and videos are responsive by default */
-img, video {
+/* Ensure images are responsive by default */
+img {
   max-width: 100%;
   height: auto;
 }
