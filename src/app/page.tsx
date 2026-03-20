@@ -119,7 +119,6 @@ export default function Home() {
           loop
           playsInline
           className="absolute inset-0 w-full h-full object-cover brightness-110 saturate-[1.15]"
-          poster="/videos/hero-poster.jpg"
         >
           <source src="/videos/hero-bg.mp4" type="video/mp4" />
         </video>
