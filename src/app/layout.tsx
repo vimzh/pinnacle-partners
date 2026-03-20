@@ -14,6 +14,13 @@ export const metadata: Metadata = {
     "Get your free personalized estimate in 30 seconds. See how much you could save with a new roof or solar installation.",
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{

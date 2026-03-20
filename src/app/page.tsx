@@ -7,7 +7,7 @@ import { Marquee } from "@/components/ui/marquee";
 import Navbar from "@/components/Navbar";
 
 /* ─── Shared container width — matches navbar ─── */
-const CW = "w-[85%] max-w-6xl mx-auto";
+const CW = "w-[90%] sm:w-[85%] max-w-6xl mx-auto";
 
 /* ─── Icons ─── */
 const CheckIcon = () => (
@@ -128,20 +128,20 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#f5f2ec]/40 via-transparent to-[#f5f2ec]/60" />
 
         {/* Hero text with very light localized blur */}
-        <div className={`relative z-10 ${CW}`}>
+        <div className={`relative z-10 ${CW} px-0 sm:px-4`}>
           <div className="relative text-center max-w-3xl mx-auto">
             {/* Barely-there blur — just enough to lift text off the video */}
-            <div className="absolute -inset-x-16 -inset-y-20 bg-white/5 backdrop-blur-[6px] rounded-[100px] mask-[radial-gradient(ellipse_at_center,black_25%,transparent_65%)] [-webkit-mask-image:radial-gradient(ellipse_at_center,black_25%,transparent_65%)]" />
+            <div className="absolute -inset-x-8 sm:-inset-x-16 -inset-y-20 bg-white/5 backdrop-blur-[6px] rounded-[60px] sm:rounded-[100px] mask-[radial-gradient(ellipse_at_center,black_25%,transparent_65%)] [-webkit-mask-image:radial-gradient(ellipse_at_center,black_25%,transparent_65%)]" />
 
             <div className="relative">
               <p
-                className="text-sm sm:text-base tracking-[0.25em] uppercase text-white font-medium mb-6 animate-fade-up"
+                className="text-[11px] sm:text-sm tracking-[0.2em] uppercase text-white font-medium mb-4 sm:mb-6 animate-fade-up"
                 style={{ animationDelay: "0.2s" }}
               >
                 Pinnacle Partners
               </p>
               <h1
-                className="font-display text-5xl sm:text-6xl lg:text-7xl xl:text-8xl text-[#1a2e1a] mb-6 leading-[1.02] animate-fade-up"
+                className="font-display text-3xl sm:text-5xl lg:text-6xl xl:text-7xl text-[#1a2e1a] mb-4 sm:mb-6 leading-[1.1] animate-fade-up"
                 style={{ animationDelay: "0.35s" }}
               >
                 See How Much
@@ -150,22 +150,22 @@ export default function Home() {
                 <em className="font-display italic text-[#2d6a4f]">Save</em>
               </h1>
               <p
-                className="text-lg sm:text-xl text-white mb-10 max-w-lg mx-auto font-light leading-relaxed animate-fade-up"
+                className="text-base sm:text-lg text-white mb-6 sm:mb-10 max-w-md mx-auto font-light leading-relaxed px-2 animate-fade-up"
                 style={{ animationDelay: "0.5s" }}
               >
                 Get your free personalized estimate in 30 seconds
               </p>
 
               <div className="animate-fade-up" style={{ animationDelay: "0.65s" }}>
-                <Link href="/calculator" className="group relative inline-block bg-[#2d6a4f] text-white px-7 py-3.5 rounded-[10px] text-base sm:text-lg font-semibold transition-colors duration-300 hover:bg-[#1a4031] cursor-pointer">
+                <Link href="/calculator" className="group relative inline-block bg-[#2d6a4f] text-white px-6 sm:px-7 py-3 sm:py-3.5 rounded-[10px] text-base sm:text-lg font-semibold transition-colors duration-300 hover:bg-[#1a4031] cursor-pointer w-full sm:w-auto text-center">
                   Get Your Free Estimate
-                  <span className="inline-block ml-2 transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
+                  <span className="hidden sm:inline-block ml-2 transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
                 </Link>
               </div>
 
-              <div className="mt-8 flex flex-wrap justify-center gap-5 text-white text-sm animate-fade-up" style={{ animationDelay: "0.8s" }}>
+              <div className="mt-6 sm:mt-8 flex flex-wrap justify-center gap-3 sm:gap-5 text-white text-[11px] sm:text-sm animate-fade-up" style={{ animationDelay: "0.8s" }}>
                 {["No obligation", "Takes 30 seconds", "Instant results"].map((badge) => (
-                  <span key={badge} className="flex items-center gap-1.5">
+                  <span key={badge} className="flex items-center gap-1">
                     <CheckIcon />
                     {badge}
                   </span>
@@ -183,25 +183,25 @@ export default function Home() {
       </section>
 
       {/* ━━━━━━━━━━ SOCIAL PROOF MARQUEE ━━━━━━━━━━ */}
-      <section className="py-6 bg-[#f5f2ec] border-y border-[#2d6a4f]/5">
+      <section className="py-4 sm:py-6 bg-[#f5f2ec] border-y border-[#2d6a4f]/5">
         <div className={CW}>
-          <p className="text-center text-xs tracking-[0.2em] uppercase text-[#6b8f63] mb-4 font-medium">
+          <p className="text-center text-[10px] sm:text-xs tracking-[0.2em] uppercase text-[#6b8f63] mb-3 sm:mb-4 font-medium">
             Trusted by contractors nationwide
           </p>
         </div>
         <div className={CW}>
           <Marquee pauseOnHover className="[--duration:35s] [--gap:0.5rem]">
             {companies.map((co) => (
-              <div key={co.name} className="flex items-center gap-2.5 px-6 shrink-0">
+              <div key={co.name} className="flex items-center gap-2 px-4 sm:px-6 shrink-0">
                 <div
-                  className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0"
+                  className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg flex items-center justify-center shrink-0"
                   style={{ backgroundColor: `${co.color}15` }}
                 >
-                  <svg className="w-5 h-5" style={{ color: co.color }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5" style={{ color: co.color }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={co.icon} />
                   </svg>
                 </div>
-                <span className="text-[15px] font-semibold text-[#1a2e1a]/60 whitespace-nowrap">{co.name}</span>
+                <span className="text-[13px] sm:text-[15px] font-semibold text-[#1a2e1a]/60 whitespace-nowrap">{co.name}</span>
               </div>
             ))}
           </Marquee>
@@ -209,27 +209,27 @@ export default function Home() {
       </section>
 
       {/* ━━━━━━━━━━ ANIMATED STATS ━━━━━━━━━━ */}
-      <section className="py-16 sm:py-20 bg-mesh-warm">
+      <section className="py-12 sm:py-20 bg-mesh-warm">
         <div className={CW}>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
             {[
               { ref: savings.ref, value: savings.value, prefix: "$", suffix: "", label: "Average 20-Year Savings", format: (v: number) => v.toLocaleString() },
               { ref: monthly.ref, value: monthly.value, prefix: "$", suffix: "/mo", label: "Monthly Savings", format: (v: number) => v.toString() },
               { ref: payback.ref, value: payback.value, prefix: "", suffix: " years", label: "Average Payback Period", format: (v: number) => (v / 10).toFixed(1) },
             ].map((stat, i) => (
-              <div key={i} ref={stat.ref} className="glass-card rounded-2xl p-6 sm:p-8 text-center noise-overlay relative overflow-hidden">
+              <div key={i} ref={stat.ref} className="glass-card rounded-2xl p-5 sm:p-8 text-center noise-overlay relative overflow-hidden">
                 <div className="flex items-baseline justify-center tabular-nums">
                   {stat.prefix && (
-                    <span className="text-2xl sm:text-3xl font-extrabold text-[#2d6a4f] mr-0.5">{stat.prefix}</span>
+                    <span className="text-xl sm:text-3xl font-extrabold text-[#2d6a4f] mr-0.5">{stat.prefix}</span>
                   )}
-                  <span className="text-4xl sm:text-5xl font-extrabold text-[#2d6a4f] tracking-tight">
+                  <span className="text-3xl sm:text-5xl font-extrabold text-[#2d6a4f] tracking-tight">
                     {stat.format(stat.value)}
                   </span>
                   {stat.suffix && (
-                    <span className="text-sm text-[#4a6741] ml-1 font-medium">{stat.suffix}</span>
+                    <span className="text-xs sm:text-sm text-[#4a6741] ml-1 font-medium">{stat.suffix}</span>
                   )}
                 </div>
-                <p className="text-xs sm:text-sm text-[#4a6741] mt-3 font-medium">{stat.label}</p>
+                <p className="text-[11px] sm:text-sm text-[#4a6741] mt-2 sm:mt-3 font-medium">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -237,18 +237,18 @@ export default function Home() {
       </section>
 
       {/* ━━━━━━━━━━ HOW IT WORKS ━━━━━━━━━━ */}
-      <section id="how-it-works" className="py-20 sm:py-28 bg-mesh-green relative">
+      <section id="how-it-works" className="py-16 sm:py-28 bg-mesh-green relative">
         <div className={CW}>
-          <div className="text-center mb-16">
-            <p className="text-xs tracking-[0.25em] uppercase text-[#d4a373] font-medium mb-3">
+          <div className="text-center mb-12 sm:mb-16">
+            <p className="text-[10px] sm:text-xs tracking-[0.25em] uppercase text-[#d4a373] font-medium mb-3">
               Simple Process
             </p>
-            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl text-[#1a2e1a]">
+            <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl text-[#1a2e1a]">
               How It Works
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 relative">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 relative">
             <div className="hidden md:block absolute top-14 left-[calc(16.67%+48px)] right-[calc(16.67%+48px)] h-px bg-gradient-to-r from-transparent via-[#2d6a4f]/15 to-transparent" />
 
             {steps.map((step, i) => (
@@ -264,17 +264,17 @@ export default function Home() {
                 glareSize={300}
                 className="noise-overlay relative overflow-hidden backdrop-blur-lg"
               >
-                <div className="p-8 text-center relative z-10 w-full">
-                  <div className="w-14 h-14 rounded-2xl bg-[#2d6a4f]/10 flex items-center justify-center mx-auto mb-5">
-                    <svg className="w-6 h-6 text-[#2d6a4f]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="p-6 sm:p-8 text-center relative z-10 w-full">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#2d6a4f]/10 flex items-center justify-center mx-auto mb-4 sm:mb-5">
+                    <svg className="w-5 h-5 sm:w-6 sm:h-6 text-[#2d6a4f]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={step.icon} />
                     </svg>
                   </div>
-                  <span className="text-[10px] font-semibold tracking-[0.2em] text-[#d4a373] uppercase mb-2 block">
+                  <span className="text-[9px] sm:text-[10px] font-semibold tracking-[0.2em] text-[#d4a373] uppercase mb-2 block">
                     Step {step.num}
                   </span>
-                  <h3 className="text-lg font-semibold mb-2 text-[#1a2e1a]">{step.title}</h3>
-                  <p className="text-sm text-[#4a6741] leading-relaxed">{step.desc}</p>
+                  <h3 className="text-base sm:text-lg font-semibold mb-2 text-[#1a2e1a]">{step.title}</h3>
+                  <p className="text-[13px] sm:text-sm text-[#4a6741] leading-relaxed">{step.desc}</p>
                 </div>
               </GlareHover>
             ))}
@@ -283,18 +283,18 @@ export default function Home() {
       </section>
 
       {/* ━━━━━━━━━━ WHY UPGRADE ━━━━━━━━━━ */}
-      <section id="benefits" className="py-20 sm:py-28 bg-mesh-warm relative">
+      <section id="benefits" className="py-16 sm:py-28 bg-mesh-warm relative">
         <div className={CW}>
-          <div className="text-center mb-16">
-            <p className="text-xs tracking-[0.25em] uppercase text-[#d4a373] font-medium mb-3">
+          <div className="text-center mb-12 sm:mb-16">
+            <p className="text-[10px] sm:text-xs tracking-[0.25em] uppercase text-[#d4a373] font-medium mb-3">
               Benefits
             </p>
-            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl text-[#1a2e1a]">
+            <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl text-[#1a2e1a]">
               Why Upgrade Your Roof
             </h2>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
             {benefits.map((card, i) => (
               <GlareHover
                 key={i}
@@ -308,14 +308,14 @@ export default function Home() {
                 glareSize={280}
                 className="noise-overlay relative overflow-hidden backdrop-blur-lg"
               >
-                <div className="p-7 relative z-10 w-full">
-                  <div className="w-11 h-11 rounded-xl bg-[#2d6a4f]/10 flex items-center justify-center mb-5">
-                    <svg className="w-5 h-5 text-[#2d6a4f]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="p-5 sm:p-7 relative z-10 w-full">
+                  <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-[#2d6a4f]/10 flex items-center justify-center mb-4 sm:mb-5">
+                    <svg className="w-4 h-4 sm:w-5 sm:h-5 text-[#2d6a4f]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={card.icon} />
                     </svg>
                   </div>
-                  <h3 className="text-base font-semibold mb-1.5 text-[#1a2e1a]">{card.title}</h3>
-                  <p className="text-sm text-[#4a6741] leading-relaxed">{card.desc}</p>
+                  <h3 className="text-sm sm:text-base font-semibold mb-1.5 text-[#1a2e1a]">{card.title}</h3>
+                  <p className="text-[13px] sm:text-sm text-[#4a6741] leading-relaxed">{card.desc}</p>
                 </div>
               </GlareHover>
             ))}
@@ -324,62 +324,62 @@ export default function Home() {
       </section>
 
       {/* ━━━━━━━━━━ TESTIMONIALS MARQUEE ━━━━━━━━━━ */}
-      <section id="reviews" className="py-20 sm:py-28 bg-mesh-green relative overflow-hidden">
+      <section id="reviews" className="py-16 sm:py-28 bg-mesh-green relative overflow-hidden">
         <div className={CW}>
-          <div className="text-center mb-16">
-            <p className="text-xs tracking-[0.25em] uppercase text-[#d4a373] font-medium mb-3">
+          <div className="text-center mb-12 sm:mb-16">
+            <p className="text-[10px] sm:text-xs tracking-[0.25em] uppercase text-[#d4a373] font-medium mb-3">
               Testimonials
             </p>
-            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl text-[#1a2e1a]">
+            <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl text-[#1a2e1a]">
               What Homeowners Say
             </h2>
           </div>
         </div>
 
         <div className={CW}>
-          <Marquee pauseOnHover className="[--duration:45s] [--gap:1.5rem] mb-4">
+          <Marquee pauseOnHover className="[--duration:45s] [--gap:1rem] mb-4">
             {testimonials.map((t, i) => (
               <div
                 key={i}
-                className="glass-card rounded-2xl p-6 w-[320px] sm:w-[360px] shrink-0 noise-overlay relative overflow-hidden flex flex-col"
+                className="glass-card rounded-2xl p-5 w-[280px] sm:w-[320px] md:w-[360px] shrink-0 noise-overlay relative overflow-hidden flex flex-col"
               >
                 <div className="flex gap-0.5 mb-3">
                   {[...Array(5)].map((_, j) => <StarIcon key={j} />)}
                 </div>
-                <p className="text-[#1a2e1a] mb-5 leading-relaxed text-[15px] flex-1 italic">
+                <p className="text-[#1a2e1a] mb-4 sm:mb-5 leading-relaxed text-[13px] sm:text-[15px] flex-1 italic">
                   &ldquo;{t.quote}&rdquo;
                 </p>
                 <div className="flex items-center pt-3 border-t border-[#2d6a4f]/10">
-                  <div className="w-8 h-8 rounded-full bg-[#2d6a4f]/10 flex items-center justify-center mr-2.5 text-[10px] font-bold text-[#2d6a4f]">
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#2d6a4f]/10 flex items-center justify-center mr-2.5 text-[9px] sm:text-[10px] font-bold text-[#2d6a4f]">
                     {t.initials}
                   </div>
                   <div>
-                    <p className="font-semibold text-sm text-[#1a2e1a]">{t.name}</p>
-                    <p className="text-[11px] text-[#6b8f63]">{t.location}</p>
+                    <p className="font-semibold text-xs sm:text-sm text-[#1a2e1a]">{t.name}</p>
+                    <p className="text-[10px] sm:text-[11px] text-[#6b8f63]">{t.location}</p>
                   </div>
                 </div>
               </div>
             ))}
           </Marquee>
-          <Marquee pauseOnHover reverse className="[--duration:50s] [--gap:1.5rem]">
+          <Marquee pauseOnHover reverse className="[--duration:50s] [--gap:1rem]">
             {[...testimonials].reverse().map((t, i) => (
               <div
                 key={i}
-                className="glass-card rounded-2xl p-6 w-[320px] sm:w-[360px] shrink-0 noise-overlay relative overflow-hidden flex flex-col"
+                className="glass-card rounded-2xl p-5 w-[280px] sm:w-[320px] md:w-[360px] shrink-0 noise-overlay relative overflow-hidden flex flex-col"
               >
                 <div className="flex gap-0.5 mb-3">
                   {[...Array(5)].map((_, j) => <StarIcon key={j} />)}
                 </div>
-                <p className="text-[#1a2e1a] mb-5 leading-relaxed text-[15px] flex-1 italic">
+                <p className="text-[#1a2e1a] mb-4 sm:mb-5 leading-relaxed text-[13px] sm:text-[15px] flex-1 italic">
                   &ldquo;{t.quote}&rdquo;
                 </p>
                 <div className="flex items-center pt-3 border-t border-[#2d6a4f]/10">
-                  <div className="w-8 h-8 rounded-full bg-[#2d6a4f]/10 flex items-center justify-center mr-2.5 text-[10px] font-bold text-[#2d6a4f]">
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#2d6a4f]/10 flex items-center justify-center mr-2.5 text-[9px] sm:text-[10px] font-bold text-[#2d6a4f]">
                     {t.initials}
                   </div>
                   <div>
-                    <p className="font-semibold text-sm text-[#1a2e1a]">{t.name}</p>
-                    <p className="text-[11px] text-[#6b8f63]">{t.location}</p>
+                    <p className="font-semibold text-xs sm:text-sm text-[#1a2e1a]">{t.name}</p>
+                    <p className="text-[10px] sm:text-[11px] text-[#6b8f63]">{t.location}</p>
                   </div>
                 </div>
               </div>
@@ -389,31 +389,31 @@ export default function Home() {
       </section>
 
       {/* ━━━━━━━━━━ FAQ ━━━━━━━━━━ */}
-      <section id="faq" className="py-20 sm:py-28 bg-mesh-warm relative">
+      <section id="faq" className="py-16 sm:py-28 bg-mesh-warm relative">
         <div className={CW}>
           <div className="max-w-2xl mx-auto">
-            <div className="text-center mb-16">
-              <p className="text-xs tracking-[0.25em] uppercase text-[#d4a373] font-medium mb-3">
+            <div className="text-center mb-12 sm:mb-16">
+              <p className="text-[10px] sm:text-xs tracking-[0.25em] uppercase text-[#d4a373] font-medium mb-3">
                 FAQ
               </p>
-              <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl text-[#1a2e1a]">
+              <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl text-[#1a2e1a]">
                 Common Questions
               </h2>
             </div>
 
-            <div className="space-y-3">
+            <div className="space-y-2 sm:space-y-3">
               {faqs.map((faq, i) => (
                 <div key={i} className="glass-card rounded-2xl overflow-hidden noise-overlay relative">
                   <button
                     onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                    className="w-full flex items-center justify-between p-6 text-left cursor-pointer transition-colors"
+                    className="w-full flex items-center justify-between p-4 sm:p-6 text-left cursor-pointer transition-colors"
                   >
-                    <h3 className="font-display text-lg text-[#1a2e1a] pr-4">{faq.q}</h3>
+                    <h3 className="font-display text-sm sm:text-lg text-[#1a2e1a] pr-3">{faq.q}</h3>
                     <ChevronIcon open={openFaq === i} />
                   </button>
                   <div className={`grid transition-all duration-500 ease-out ${openFaq === i ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
                     <div className="overflow-hidden">
-                      <p className="px-6 pb-6 text-sm text-[#4a6741] leading-relaxed">{faq.a}</p>
+                      <p className="px-4 sm:px-6 pb-4 sm:pb-6 text-xs sm:text-sm text-[#4a6741] leading-relaxed">{faq.a}</p>
                     </div>
                   </div>
                 </div>
@@ -424,27 +424,27 @@ export default function Home() {
       </section>
 
       {/* ━━━━━━━━━━ FINAL CTA ━━━━━━━━━━ */}
-      <section className="relative py-24 sm:py-32 overflow-hidden">
+      <section className="relative py-16 sm:py-32 overflow-hidden">
         <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover brightness-110 saturate-[1.15]">
           <source src="/videos/hero-bg.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-b from-[#f5f2ec]/50 via-transparent to-[#f5f2ec]/50" />
         <div className="absolute inset-0 bg-mesh-hero" />
 
-        <div className={`relative z-10 ${CW}`}>
-          <div className="relative text-center max-w-2xl mx-auto py-14 sm:py-16">
-            <div className="absolute -inset-x-16 -inset-y-12 bg-white/5 backdrop-blur-[6px] rounded-[100px] mask-[radial-gradient(ellipse_at_center,black_25%,transparent_65%)] [-webkit-mask-image:radial-gradient(ellipse_at_center,black_25%,transparent_65%)]" />
+        <div className={`relative z-10 ${CW} px-0 sm:px-4`}>
+          <div className="relative text-center max-w-2xl mx-auto py-12 sm:py-16">
+            <div className="absolute -inset-x-8 sm:-inset-x-16 -inset-y-12 bg-white/5 backdrop-blur-[6px] rounded-[60px] sm:rounded-[100px] mask-[radial-gradient(ellipse_at_center,black_25%,transparent_65%)] [-webkit-mask-image:radial-gradient(ellipse_at_center,black_25%,transparent_65%)]" />
 
             <div className="relative">
-              <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl text-[#1a2e1a] mb-4">
+              <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl text-[#1a2e1a] mb-4">
                 Ready to <em className="font-display italic text-[#2d6a4f]">save</em>?
               </h2>
-              <p className="text-[#4a6741] mb-8 text-lg sm:text-xl font-light max-w-md mx-auto">
+              <p className="text-[#4a6741] mb-6 sm:mb-8 text-base sm:text-lg font-light max-w-md mx-auto px-2">
                 Get your free estimate now and see how much you could save.
               </p>
-              <Link href="/calculator" className="group inline-block bg-[#2d6a4f] text-white px-7 py-3.5 rounded-[10px] text-base sm:text-lg font-semibold transition-colors duration-300 hover:bg-[#1a4031] cursor-pointer">
+              <Link href="/calculator" className="group inline-block bg-[#2d6a4f] text-white px-6 sm:px-7 py-3 sm:py-3.5 rounded-[10px] text-base sm:text-lg font-semibold transition-colors duration-300 hover:bg-[#1a4031] cursor-pointer w-full sm:w-auto text-center">
                 Get Your Free Estimate
-                <span className="inline-block ml-2 transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
+                <span className="hidden sm:inline-block ml-2 transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
               </Link>
             </div>
           </div>
@@ -452,38 +452,38 @@ export default function Home() {
       </section>
 
       {/* ━━━━━━━━━━ FOOTER ━━━━━━━━━━ */}
-      <footer className="glass-strong py-12 border-t border-[#2d6a4f]/8">
+      <footer className="glass-strong py-8 sm:py-12 border-t border-[#2d6a4f]/8">
         <div className={CW}>
-          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8">
-            <div>
-              <h3 className="font-display text-lg text-[#1a2e1a] mb-3">Pinnacle Partners</h3>
-              <p className="text-sm text-[#4a6741]">Premium roofing and solar solutions for homeowners.</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
+            <div className="sm:col-span-2 md:col-span-1">
+              <h3 className="font-display text-base sm:text-lg text-[#1a2e1a] mb-2 sm:mb-3">Pinnacle Partners</h3>
+              <p className="text-xs sm:text-sm text-[#4a6741]">Premium roofing and solar solutions for homeowners.</p>
             </div>
             <div>
-              <h4 className="font-semibold text-sm text-[#1a2e1a] mb-3">Services</h4>
-              <ul className="space-y-1.5 text-sm text-[#4a6741]">
+              <h4 className="font-semibold text-xs sm:text-sm text-[#1a2e1a] mb-2 sm:mb-3">Services</h4>
+              <ul className="space-y-1 text-xs sm:text-sm text-[#4a6741]">
                 <li>Roof Replacement</li>
                 <li>Solar Installation</li>
                 <li>Energy Audits</li>
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold text-sm text-[#1a2e1a] mb-3">Company</h4>
-              <ul className="space-y-1.5 text-sm text-[#4a6741]">
+              <h4 className="font-semibold text-xs sm:text-sm text-[#1a2e1a] mb-2 sm:mb-3">Company</h4>
+              <ul className="space-y-1 text-xs sm:text-sm text-[#4a6741]">
                 <li>About Us</li>
                 <li>Contact</li>
                 <li>Careers</li>
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold text-sm text-[#1a2e1a] mb-3">Legal</h4>
-              <ul className="space-y-1.5 text-sm text-[#4a6741]">
+              <h4 className="font-semibold text-xs sm:text-sm text-[#1a2e1a] mb-2 sm:mb-3">Legal</h4>
+              <ul className="space-y-1 text-xs sm:text-sm text-[#4a6741]">
                 <li>Privacy Policy</li>
                 <li>Terms of Service</li>
               </ul>
             </div>
           </div>
-          <div className="mt-10 pt-6 border-t border-[#2d6a4f]/8 text-center text-xs text-[#6b8f63]">
+          <div className="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-[#2d6a4f]/8 text-center text-[11px] sm:text-xs text-[#6b8f63]">
             <p>&copy; 2024 Pinnacle Partners. All rights reserved.</p>
           </div>
         </div>

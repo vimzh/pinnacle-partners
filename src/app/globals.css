@@ -46,6 +46,19 @@ body {
   font-family: var(--font-manrope), system-ui, -apple-system, sans-serif;
   font-weight: 400;
   line-height: 1.6;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Prevent horizontal overflow */
+html {
+  overflow-x: hidden;
+}
+
+/* Ensure images and videos are responsive by default */
+img, video {
+  max-width: 100%;
+  height: auto;
 }
 
 /* ─── Glass Morphism System ─── */
