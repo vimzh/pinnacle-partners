@@ -135,7 +135,7 @@ export default function Home() {
 
             <div className="relative">
               <p
-                className="text-sm sm:text-base tracking-[0.25em] uppercase text-[#2d6a4f] font-medium mb-6 animate-fade-up"
+                className="text-sm sm:text-base tracking-[0.25em] uppercase text-white font-medium mb-6 animate-fade-up"
                 style={{ animationDelay: "0.2s" }}
               >
                 Pinnacle Partners
