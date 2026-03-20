@@ -61,8 +61,8 @@ export const StepZipCode = () => {
       {inputs.ownsHome === false && (
         <div className="rounded-xl border border-amber-500/20 bg-amber-500/5 p-4">
           <p className="text-amber-400 text-sm">
-            Our savings calculator is designed for homeowners. If you're
-            renting, we'd recommend speaking with your landlord about solar
+            Our savings calculator is designed for homeowners. If you&apos;re
+            renting, we&apos;d recommend speaking with your landlord about solar
             options for the property.
           </p>
         </div>

@@ -22,10 +22,6 @@ const baseRoofInputs: CalculatorInputs = {
   interest: "roof",
 };
 
-const baseBothInputs: CalculatorInputs = {
-  ...baseSolarInputs,
-  interest: "both",
-};
 
 describe("getStateFromZip", () => {
   it("returns TX for zip 75201", () => {

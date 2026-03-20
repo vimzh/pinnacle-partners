@@ -25,7 +25,7 @@ export const StepRoofDetails = () => {
     <div className="space-y-8">
       <div>
         <h2 className="text-2xl font-bold text-white mb-2">Tell us about your roof</h2>
-        <p className="text-white/60 text-sm">Don't worry about exact numbers — estimates work great.</p>
+        <p className="text-white/60 text-sm">Don&apos;t worry about exact numbers — estimates work great.</p>
       </div>
 
       <div>
