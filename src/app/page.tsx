@@ -448,7 +448,7 @@ export default function Home() {
               <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl text-[#1a2e1a] mb-4">
                 Ready to <em className="font-display italic text-[#2d6a4f]">save</em>?
               </h2>
-              <p className="text-[#4a6741] mb-6 sm:mb-8 text-base sm:text-lg font-light max-w-md mx-auto px-2">
+              <p className="text-white mb-6 sm:mb-8 text-base sm:text-lg font-light max-w-md mx-auto px-2">
                 Get your free estimate now and see how much you could save.
               </p>
               <Link href="/calculator" className="group inline-block bg-[#2d6a4f] text-white px-6 sm:px-7 py-3 sm:py-3.5 rounded-[10px] text-base sm:text-lg font-semibold transition-colors duration-300 hover:bg-[#1a4031] cursor-pointer w-full sm:w-auto text-center">
