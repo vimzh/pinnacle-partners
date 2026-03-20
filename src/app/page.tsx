@@ -7,7 +7,7 @@ import { Marquee } from "@/components/ui/marquee";
 import Navbar from "@/components/Navbar";
 
 /* ─── Shared container width — matches navbar ─── */
-const CW = "w-[90%] sm:w-[85%] max-w-6xl mx-auto";
+const CW = "w-[92%] sm:w-[85%] max-w-6xl mx-auto";
 
 /* ─── Icons ─── */
 const CheckIcon = () => (
@@ -112,19 +112,21 @@ export default function Home() {
       <Navbar />
 
       {/* ━━━━━━━━━━ HERO ━━━━━━━━━━ */}
-      <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden">
+      <section className="relative h-dvh min-h-[600px] max-h-[1200px] flex items-center justify-center overflow-hidden">
+        {/* Video — object-cover crops left/right on portrait mobile to fill full height */}
         <video
           autoPlay
           muted
           loop
           playsInline
-          className="absolute inset-0 w-[180%] h-[180%] object-cover brightness-110 saturate-[1.15] -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+          className="absolute inset-0 w-full h-full object-cover brightness-110 saturate-[1.15]"
+          poster="/videos/hero-poster.jpg"
         >
           <source src="/videos/hero-bg.mp4" type="video/mp4" />
         </video>
 
         <div className="absolute inset-0 bg-mesh-hero" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#f5f2ec]/40 via-transparent to-[#f5f2ec]/60" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#f5f2ec]/30 via-transparent to-[#f5f2ec]/60" />
 
         {/* Hero text with very light localized blur */}
         <div className={`relative z-10 ${CW} px-0 sm:px-4`}>
@@ -210,25 +212,25 @@ export default function Home() {
       {/* ━━━━━━━━━━ ANIMATED STATS ━━━━━━━━━━ */}
       <section className="py-12 sm:py-20 bg-mesh-warm">
         <div className={CW}>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+          <div className="grid grid-cols-3 gap-3 sm:gap-6">
             {[
               { ref: savings.ref, value: savings.value, prefix: "$", suffix: "", label: "Average 20-Year Savings", format: (v: number) => v.toLocaleString() },
               { ref: monthly.ref, value: monthly.value, prefix: "$", suffix: "/mo", label: "Monthly Savings", format: (v: number) => v.toString() },
               { ref: payback.ref, value: payback.value, prefix: "", suffix: " years", label: "Average Payback Period", format: (v: number) => (v / 10).toFixed(1) },
             ].map((stat, i) => (
-              <div key={i} ref={stat.ref} className="glass-card rounded-2xl p-5 sm:p-8 text-center noise-overlay relative overflow-hidden">
+              <div key={i} ref={stat.ref} className="glass-card rounded-xl sm:rounded-2xl p-3 sm:p-8 text-center noise-overlay relative overflow-hidden">
                 <div className="flex items-baseline justify-center tabular-nums">
                   {stat.prefix && (
-                    <span className="text-xl sm:text-3xl font-extrabold text-[#2d6a4f] mr-0.5">{stat.prefix}</span>
+                    <span className="text-base sm:text-3xl font-extrabold text-[#2d6a4f] mr-0.5">{stat.prefix}</span>
                   )}
-                  <span className="text-3xl sm:text-5xl font-extrabold text-[#2d6a4f] tracking-tight">
+                  <span className="text-xl sm:text-5xl font-extrabold text-[#2d6a4f] tracking-tight">
                     {stat.format(stat.value)}
                   </span>
                   {stat.suffix && (
-                    <span className="text-xs sm:text-sm text-[#4a6741] ml-1 font-medium">{stat.suffix}</span>
+                    <span className="text-[10px] sm:text-sm text-[#4a6741] ml-0.5 sm:ml-1 font-medium">{stat.suffix}</span>
                   )}
                 </div>
-                <p className="text-[11px] sm:text-sm text-[#4a6741] mt-2 sm:mt-3 font-medium">{stat.label}</p>
+                <p className="text-[10px] sm:text-sm text-[#4a6741] mt-1.5 sm:mt-3 font-medium leading-tight">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -293,7 +295,7 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
             {benefits.map((card, i) => (
               <GlareHover
                 key={i}
@@ -423,14 +425,8 @@ export default function Home() {
       </section>
 
       {/* ━━━━━━━━━━ FINAL CTA ━━━━━━━━━━ */}
-      <section className="relative min-h-[85dvh] flex items-center justify-center overflow-hidden">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-[180%] h-[180%] object-cover brightness-110 saturate-[1.15] -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-        >
+      <section className="relative h-dvh min-h-[500px] max-h-[900px] flex items-center justify-center overflow-hidden">
+        <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover brightness-110 saturate-[1.15]">
           <source src="/videos/hero-bg.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-b from-[#f5f2ec]/50 via-transparent to-[#f5f2ec]/50" />
@@ -459,8 +455,8 @@ export default function Home() {
       {/* ━━━━━━━━━━ FOOTER ━━━━━━━━━━ */}
       <footer className="glass-strong py-8 sm:py-12 border-t border-[#2d6a4f]/8">
         <div className={CW}>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
-            <div className="sm:col-span-2 md:col-span-1">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
+            <div className="col-span-2 sm:col-span-1">
               <h3 className="font-display text-base sm:text-lg text-[#1a2e1a] mb-2 sm:mb-3">Pinnacle Partners</h3>
               <p className="text-xs sm:text-sm text-[#4a6741]">Premium roofing and solar solutions for homeowners.</p>
             </div>

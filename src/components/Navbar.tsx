@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 const navItems = [
   { label: "How It Works", href: "#how-it-works" },
@@ -12,6 +13,7 @@ const navItems = [
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
@@ -43,6 +45,7 @@ const Navbar = () => {
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
+    setMobileMenuOpen(false);
     const el = document.querySelector(href);
     if (el) {
       const y = el.getBoundingClientRect().top + window.scrollY - 100;
@@ -52,7 +55,6 @@ const Navbar = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex justify-center">
-      {/* nav padding = 10px, button corner radius = 10px, nav bottom corners = 16px */}
       <nav
         className={`relative flex items-center justify-between w-[92%] sm:w-[85%] max-w-6xl p-2 sm:p-2.5 rounded-b-[12px] sm:rounded-b-[16px] transition-all duration-500 ease-out ${
           scrolled
@@ -60,7 +62,7 @@ const Navbar = () => {
             : "bg-white/15 backdrop-blur-lg border-b border-x border-white/20"
         }`}
       >
-        {/* Brand — left */}
+        {/* Brand */}
         <a
           href="#"
           onClick={(e) => {
@@ -72,7 +74,7 @@ const Navbar = () => {
           Pinnacle
         </a>
 
-        {/* Links — center */}
+        {/* Desktop links */}
         <ul className="hidden md:flex items-center gap-0.5 absolute left-1/2 -translate-x-1/2">
           {navItems.map((item) => {
             const sectionId = item.href.replace("#", "");
@@ -99,18 +101,62 @@ const Navbar = () => {
           })}
         </ul>
 
-        {/* CTA — right, squarish with rounded-[10px] matching nav padding */}
-        <a
-          href="#estimate"
-          onClick={(e) => {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: "smooth" });
-          }}
-          className="block bg-[#2d6a4f] text-white text-[11px] sm:text-[13px] font-semibold px-4 sm:px-5 py-2 sm:py-2.5 rounded-[8px] sm:rounded-[10px] transition-colors duration-300 hover:bg-[#1a4031] cursor-pointer select-none whitespace-nowrap"
-        >
-          Free Estimate
-        </a>
+        <div className="flex items-center gap-1.5 sm:gap-2">
+          {/* CTA */}
+          <Link
+            href="/calculator"
+            className="block bg-[#2d6a4f] text-white text-[11px] sm:text-[13px] font-semibold px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-[8px] sm:rounded-[10px] transition-colors duration-300 hover:bg-[#1a4031] cursor-pointer select-none whitespace-nowrap"
+          >
+            Free Estimate
+          </Link>
+
+          {/* Mobile hamburger */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="md:hidden flex flex-col items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-[8px] sm:rounded-[10px] bg-white/20 cursor-pointer"
+            aria-label="Toggle menu"
+          >
+            <span className={`block w-3.5 h-[1.5px] bg-[#1a2e1a] transition-all duration-300 ${mobileMenuOpen ? "rotate-45 translate-y-[3px]" : ""}`} />
+            <span className={`block w-3.5 h-[1.5px] bg-[#1a2e1a] mt-1 transition-all duration-300 ${mobileMenuOpen ? "-rotate-45 -translate-y-[2px]" : ""}`} />
+          </button>
+        </div>
       </nav>
+
+      {/* Mobile menu dropdown */}
+      <div
+        className={`md:hidden fixed top-[48px] sm:top-[52px] left-0 right-0 z-40 transition-all duration-300 ease-out ${
+          mobileMenuOpen
+            ? "opacity-100 translate-y-0 pointer-events-auto"
+            : "opacity-0 -translate-y-2 pointer-events-none"
+        }`}
+      >
+        <div className="mx-auto w-[92%] sm:w-[85%] max-w-6xl mt-1">
+          <div className="bg-white/60 backdrop-blur-xl rounded-2xl border border-white/40 shadow-[0_8px_32px_rgba(31,38,31,0.1)] p-2.5 sm:p-3">
+            <ul className="space-y-0.5">
+              {navItems.map((item) => {
+                const sectionId = item.href.replace("#", "");
+                const isActive = activeSection === sectionId;
+
+                return (
+                  <li key={item.href}>
+                    <a
+                      href={item.href}
+                      onClick={(e) => handleClick(e, item.href)}
+                      className={`block px-3.5 py-2.5 text-sm font-medium rounded-xl transition-colors duration-200 cursor-pointer ${
+                        isActive
+                          ? "text-[#1a2e1a] bg-[#2d6a4f]/8"
+                          : "text-[#4a6741] hover:text-[#1a2e1a] hover:bg-[#2d6a4f]/5"
+                      }`}
+                    >
+                      {item.label}
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </div>
+      </div>
 
       <style>{`
         @keyframes pill-in {
