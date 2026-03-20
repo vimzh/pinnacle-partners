@@ -112,13 +112,13 @@ export default function Home() {
       <Navbar />
 
       {/* ━━━━━━━━━━ HERO ━━━━━━━━━━ */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden">
         <video
           autoPlay
           muted
           loop
           playsInline
-          className="absolute inset-0 w-full h-full object-cover brightness-110 saturate-[1.15] scale-125 sm:scale-110"
+          className="absolute inset-0 w-[115%] h-[115%] object-cover brightness-110 saturate-[1.15] -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
         >
           <source src="/videos/hero-bg.mp4" type="video/mp4" />
         </video>
@@ -423,8 +423,14 @@ export default function Home() {
       </section>
 
       {/* ━━━━━━━━━━ FINAL CTA ━━━━━━━━━━ */}
-      <section className="relative py-16 sm:py-32 overflow-hidden">
-        <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover brightness-110 saturate-[1.15]">
+      <section className="relative min-h-[85dvh] flex items-center justify-center overflow-hidden">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-[115%] h-[115%] object-cover brightness-110 saturate-[1.15] -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+        >
           <source src="/videos/hero-bg.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-b from-[#f5f2ec]/50 via-transparent to-[#f5f2ec]/50" />
